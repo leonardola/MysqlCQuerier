@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-MacOSX
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-MacOSX
-CND_ARTIFACT_NAME_Debug=mysqlconnection
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-MacOSX/mysqlconnection
+CND_ARTIFACT_NAME_Debug=mysqlcquerier
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-MacOSX/mysqlcquerier
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-MacOSX/package
-CND_PACKAGE_NAME_Debug=mysqlconnection.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-MacOSX/package/mysqlconnection.tar
+CND_PACKAGE_NAME_Debug=mysqlcquerier.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-MacOSX/package/mysqlcquerier.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-MacOSX
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-MacOSX
-CND_ARTIFACT_NAME_Release=mysqlconnection
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-MacOSX/mysqlconnection
+CND_ARTIFACT_NAME_Release=mysqlcquerier
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-MacOSX/mysqlcquerier
 CND_PACKAGE_DIR_Release=dist/Release/GNU-MacOSX/package
-CND_PACKAGE_NAME_Release=mysqlconnection.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-MacOSX/package/mysqlconnection.tar
+CND_PACKAGE_NAME_Release=mysqlcquerier.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-MacOSX/package/mysqlcquerier.tar
 #
 # include compiler specific variables
 #

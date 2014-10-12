@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=mysqlConnection
+PROJECTNAME=MysqlCQuerier
 
 # Active Configuration
 DEFAULTCONF=Debug
