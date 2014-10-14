@@ -91,18 +91,19 @@ int executeQuery(MYSQL *conn) {
     return 0;
 }
 
-int selectDatabase(MYSQL *conn){
+/*int selectDatabase(MYSQL *conn){
     char dataBase[50];
     char use[100];
     
+    memset(use, '\0', sizeof(use));
     strcpy(use,"use ");
     
     printf("Digite o nome do banco de dados\n");
     scanf("%s",dataBase);
+    strcat(use ,dataBase);
+    showResult(conn, use);
     
-    showResult(conn,strcat(use ,dataBase));
-    
-}
+}*/
 
 /**
  * mostra o menu
@@ -117,7 +118,7 @@ int showMenu(MYSQL *conn){
         printf("Digite 1 para sair \n");
         printf("Digite 2 para executar uma query manual \n");
         printf("Digite 3 para mostrar os bancos \n");
-        printf("Digite 4 para selecionar um banco \n");
+        //printf("Digite 4 para selecionar um banco \n");
         printf("Digite 5 para mostrar as tabelas do banco \n");
 
         scanf("%i",&option);
