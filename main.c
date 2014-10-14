@@ -18,11 +18,16 @@ void showResult(MYSQL *conn, char *query){
 
     MYSQL_RES *answer = mysql_use_result(conn);
 
-
+    if(answer == NULL){
+        return ;
+    }
+    
     MYSQL_ROW row;
     unsigned int numberOfFields = mysql_num_fields(answer);
     int i=0;
     
+    
+            
     while ((row = mysql_fetch_row(answer)) != NULL){
       
         for (i=0;i < numberOfFields;i++){
@@ -91,19 +96,30 @@ int executeQuery(MYSQL *conn) {
     return 0;
 }
 
-/*int selectDatabase(MYSQL *conn){
+int selectDatabase(MYSQL *conn){
     char dataBase[50];
-    char use[100];
     
-    memset(use, '\0', sizeof(use));
-    strcpy(use,"use ");
     
     printf("Digite o nome do banco de dados\n");
     scanf("%s",dataBase);
-    strcat(use ,dataBase);
-    showResult(conn, use);
     
-}*/
+    if(strcmp(dataBase,"menu") == 0){
+        
+        return 1;
+        
+    }else if(strcmp(dataBase,"sair") == 0){
+        
+        return 0;
+        
+    }
+    
+    if(mysql_select_db(conn, dataBase)){
+        
+        printf("erro ao conectar no banco de dados");
+        return 1;
+    }
+    
+}
 
 /**
  * mostra o menu
@@ -118,7 +134,7 @@ int showMenu(MYSQL *conn){
         printf("Digite 1 para sair \n");
         printf("Digite 2 para executar uma query manual \n");
         printf("Digite 3 para mostrar os bancos \n");
-        //printf("Digite 4 para selecionar um banco \n");
+        printf("Digite 4 para selecionar um banco \n");
         printf("Digite 5 para mostrar as tabelas do banco \n");
 
         scanf("%i",&option);
