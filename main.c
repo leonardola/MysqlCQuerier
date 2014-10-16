@@ -19,6 +19,7 @@ void showResult(MYSQL *conn, char *query){
     MYSQL_RES *answer = mysql_use_result(conn);
 
     if(answer == NULL){
+        mysql_free_result(answer);
         return ;
     }
     
@@ -55,7 +56,7 @@ void showDatabases(MYSQL *conn){
 }
 
 /**
- * show tables
+ * mostra as tabelas do banco selecionado
  * @param conn
  */
 void showTables(MYSQL *conn){
@@ -96,6 +97,11 @@ int executeQuery(MYSQL *conn) {
     return 0;
 }
 
+/**
+ * permite trocar de banco 
+ * @param conn
+ * @return 
+ */
 int selectDatabase(MYSQL *conn){
     char dataBase[50];
     
@@ -194,8 +200,7 @@ int main() {
     printf("Ou 'sair' par terminar \n\n\n");
     
     MYSQL *conn;
-    MYSQL_RES *res;
-    MYSQL_ROW row;
+    //cria uma conexão fazia
     conn = mysql_init(NULL);
 
     /* Connect to database */
@@ -205,33 +210,13 @@ int main() {
         exit(1);
 
     }
-    /* send SQL query */
-    if (mysql_query(conn, "show tables")) {
-
-        fprintf(stderr, "%s\n", mysql_error(conn));
-        exit(1);
-
-    }
-
-    res = mysql_use_result(conn);
-
-    /* output table name */
-    printf("MySQL Tables in mysql database:\n");
-
-    while ((row = mysql_fetch_row(res)) != NULL) {
-
-        printf("%s \n", row[0]);
-
-    }
-
-    /* close connection */
+    
+    //permite o usuario digitar uma query ou entrar no menu
     if(executeQuery(conn) == 1){
         showMenu(conn);
     }
 
-
-    //close connection
-    mysql_free_result(res);
+    //fecha a conexão
     mysql_close(conn);
 
 }
